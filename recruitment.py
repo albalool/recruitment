@@ -13,12 +13,14 @@ def get_skills():
 
 skills = get_skills()
 def show_skills(skills):
-    for skill in skills:
-        print(skills.index(skill) +1, end='.')
-        print("",skill)
+    print("Skills:")
+    for index, skill in enumerate(skills, 1): # 1 way to do numbrec list
+        print(f"{index}. {skill}")
         
-# #   for skill in enumerate(skills):
-#  #       print(skill)   
+    # for skill in skills: # my way to do this 
+    #     print(skills.index(skill) +1, end='.')
+    #     print("",skill)
+        
 # show_skills(skills)
 
 # Shows the available skills and have user pick from them two skills
@@ -27,9 +29,9 @@ def show_skills(skills):
 # Return a list of the two skills that the user inputted
 def get_user_skills(skills):
     show_skills(skills)
-    skill1 = int(input('Choose skill: '))
-    skill2 = int(input('Choose another skill: '))
-    lst = [skill1, skill2]
+    skill1 = int(input('Choose a skill from above by entering its number: '))
+    skill2 = int(input('Choose another skill from above by entering its number: '))
+    lst = [skills[skill1 - 1], skills[skill2 -1]]
     return lst
 
 #print(get_user_skills(skills))
@@ -45,7 +47,7 @@ def get_user_cv(skills):
     cv = {
         "name": name,
         "age": age,
-        "experince": experience,
+        "experience": experience,
         "skills": get_user_skills(skills)
     }
     return cv
@@ -53,15 +55,22 @@ def get_user_cv(skills):
 
 # This functions checks if the cv is acceptable or not, by checking the age, experience and skills and return a boolean (True or False) based on that
 def check_acceptance(cv, desired_skill):
-    if (25 >= cv["age"] <= 40 and cv["experince"] > 3 and desired_skill in cv["skills"]):
+    if (25 <= cv["age"] <= 40 and cv["experience"] > 3 and desired_skill in cv["skills"]):
         return True
+    else:
+        return False
     
 # print(check_acceptance(get_user_cv(skills),"Python"))
 
 def main():
     print("Welcome to the special recruitment program, please answer the following questions:")
-    if check_acceptance(get_user_cv(skills),cv["skills"]) == True:
-        return print("You have been accepted")
+    skills = get_skills()
+    user_cv =get_user_cv(skills)
+    if check_acceptance(user_cv, "Python") == True:
+        print("You have been accepted :)")
+    else:
+        print("You have been rejected :(")
+        
     
 
 if __name__ == "__main__":
