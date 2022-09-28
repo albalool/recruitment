@@ -52,14 +52,14 @@ def get_user_cv(skills):
 def check_acceptance(cv, desired_skill):
     if (25 >= cv["age"] <= 40 and cv["experince"] > 3 and desired_skill in cv["skills"]):
         return True
-
+    
 # print(check_acceptance(get_user_cv(skills),"Python"))
 
 def main():
-#     print("Welcome to the special recruitment program, please answer the following questions:")
-#     print(get_user_cv(skills))
-#  #   print(check_acceptance(cv,"Python"))
-#     print("You have been accepted", cv["name"])
+    print("Welcome to the special recruitment program, please answer the following questions:")
+    if check_acceptance(get_user_cv(skills),cv["skills"]) == True:
+        return print("You have been accepted")
+    
 
 if __name__ == "__main__":
     main()
