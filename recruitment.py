@@ -16,9 +16,10 @@ def show_skills(skills):
     for skill in skills:
         print(skills.index(skill) +1, end='.')
         print("",skill)
-#   for skill in enumerate(skills):
- #       print(skill)   
-show_skills(skills)
+        
+# #   for skill in enumerate(skills):
+#  #       print(skill)   
+# show_skills(skills)
 
 # Shows the available skills and have user pick from them two skills
 # HINT: Use previous built functions to show the skills
@@ -26,12 +27,12 @@ show_skills(skills)
 # Return a list of the two skills that the user inputted
 def get_user_skills(skills):
     show_skills(skills)
-    skill1 = input('Choose skill: ')
-    skill2 = input('Choose another skill: ')
+    skill1 = int(input('Choose skill: '))
+    skill2 = int(input('Choose another skill: '))
     lst = [skill1, skill2]
     return lst
 
-# print(get_user_skills(skills))
+#print(get_user_skills(skills))
 
 
 # This function will get the user's cv from their inputs
@@ -57,11 +58,11 @@ def check_acceptance(cv, desired_skill):
     
 # print(check_acceptance(get_user_cv(skills),"Python"))
 
-# def main():
-#     print("Welcome to the special recruitment program, please answer the following questions:")
-#     if check_acceptance(get_user_cv(skills),cv["skills"]) == True:
-#         return print("You have been accepted")
+def main():
+    print("Welcome to the special recruitment program, please answer the following questions:")
+    if check_acceptance(get_user_cv(skills),cv["skills"]) == True:
+        return print("You have been accepted")
     
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
