@@ -67,7 +67,7 @@ def main():
     skills = get_skills()
     user_cv =get_user_cv(skills)
     if check_acceptance(user_cv, "Python") == True:
-        print("You have been accepted :)")
+        print(f"You have been accepted, {user_cv['name'] } :)")
     else:
         print("You have been rejected :(")
         
